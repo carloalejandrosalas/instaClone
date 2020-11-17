@@ -5,19 +5,22 @@
     {{-- Profile Info --}}
     <div class="row">
         <div class="col-3">
-            <img class="profile__image" src="https://instagram.fhmo2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/97566921_2973768799380412_5562195854791540736_n.jpg?_nc_ht=instagram.fhmo2-1.fna.fbcdn.net&_nc_ohc=4HZOAeZMrlwAX8_311F&_nc_tp=25&oh=5fc70abe625f811c77e561ccf83983d3&oe=5FD924E7" alt="Free Code Camp Logo">
+            <img class="w-100 profile__image" src="{{ $user->profile->profileImage()  }}" alt="{{ $user->username }}">
         </div>
         <div class="col-9">
-            <div class="row">
-                <div class="col-6">
-                    <h1> {{ $user->username }} </h1>
-                </div>
-                <div class="col-1">
-                    <button class="btn btn-primary">
-                        Follow
-                    </button>
-                </div>
+            <div class="d-flex justify-content-between align-items-baseline">
+                <h1> {{ $user->username }} </h1>
+                @can('update', $user->profile)
+                    <a class="btn btn-primary" href="{{ route('post.create') }}">
+                        Add New Post
+                    </a>
+                @endcan
+            
             </div>
+
+            @can('update', $user->profile)
+                <a class="my-2" href="{{ route('profile.edit', $user->id) }}">Edit Profile</a>
+            @endcan
 
             {{-- Info --}}
             <div class="d-flex">
@@ -47,7 +50,7 @@
                 {{ $user->profile->description }}
                 <br>
                 {{-- Web Url --}}
-                <a href="https://{{ $user->profile->url }}" target="_blank">
+                <a href="{{ $user->profile->url }}" target="_blank">
                     {{ $user->profile->url }}
                 </a>
             </p>

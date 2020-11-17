@@ -12,7 +12,11 @@ class PostsController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        if (!request()->route()->named('post.show')) {
+            //
+            $this->middleware('auth');
+        }
+
     }
 
     public function create() {

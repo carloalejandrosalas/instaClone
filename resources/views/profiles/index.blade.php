@@ -70,10 +70,12 @@
     </div> --}}
 
     {{-- Photos --}}
-    <div class="row">
+    <div class="row mt-5">
         @foreach ($user->posts as $post)
             <div class="col-4 pb-4">
-                <img class="w-100" src="/storage/{{$post->image}}" alt="{{ $post->caption }}">
+                <a href="/p/{{ $post->id }}">
+                    <img class="w-100" src="/storage/{{$post->image}}" alt="{{ $post->caption }}">
+                </a>
             </div>
         @endforeach
     </div>

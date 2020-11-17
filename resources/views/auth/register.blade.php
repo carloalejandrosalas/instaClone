@@ -48,7 +48,7 @@
                                     Maximum of 16 characters
                                 </small>
 
-                                @error('nick')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

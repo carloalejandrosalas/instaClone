@@ -20,4 +20,8 @@ class Profile extends Model
     {
         return ($this->image) ? "/storage/{$this->image}" : '/img/no_image.jpg';
     }
+
+    public function followers () {
+        return $this->belongsToMany(User::class);
+    }
 }

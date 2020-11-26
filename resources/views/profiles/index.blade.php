@@ -29,15 +29,15 @@
             {{-- Info --}}
             <div class="d-flex">
                 <div class="pr-3">
-                    <b>{{ $user->posts->count() }}</b>
+                    <b>{{ $postsCount }}</b>
                     posts
                 </div>
                 <div class="pr-3">
-                    <b>{{ $user->profile->followers->count() }}</b>
+                    <b>{{ $followersCount }}</b>
                     followers
                 </div>
                 <div class="pr-3">
-                    <b>{{ $user->following->count() }}</b> following
+                    <b>{{ $followingCount }}</b> following
                 </div>
             </div>
 
